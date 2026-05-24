@@ -1,5 +1,5 @@
 # Recommending Spotify Songs with KNN and Cosine Similarity
-A program that recommends songs using the Spotify API and Data Science concepts 
+A program that recommends songs using the Kaggle Spotify Dataset and Data Science concepts 
 
 Concepts to be implemented 
 - K Nearest Neighbors (KNN)
