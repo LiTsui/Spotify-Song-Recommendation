@@ -2,5 +2,4 @@
 /.idea
 /.env
 /.cache
-/.data/raw
-/.data/processed
+/.data
