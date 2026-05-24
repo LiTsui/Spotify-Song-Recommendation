@@ -6,3 +6,9 @@ Concepts to be implemented
 - K Means Clustering
 - Cosine Similarity
 - Euclidean Distancing
+
+```bash
+cd Spotify_Song_Recommender
+mkdir -p data/raw
+kaggle datasets download -d maharshipandya/-spotify-tracks-dataset --unzip -p data/raw
+```
