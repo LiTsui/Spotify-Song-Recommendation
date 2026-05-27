@@ -1,14 +1,125 @@
-# Recommending Spotify Songs with KNN and Cosine Similarity
-A program that recommends songs using the Kaggle Spotify Dataset and Data Science concepts 
+# 🎵 Spotify Song Recommender
 
-Concepts to be implemented 
-- K Nearest Neighbors (KNN)
-- K Means Clustering
-- Cosine Similarity
-- Euclidean Distancing
+A content-based music recommendation system built in Python using the [Kaggle Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset). Given a song name, the program recommends 5 similar songs using audio features and machine learning.
+
+## Setup
+
+### 1. Clone the repository
 
 ```bash
+git clone https://github.com/<your-username>/Spotify_Song_Recommender.git
 cd Spotify_Song_Recommender
+```
+
+### 2. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Download the dataset
+
+```bash
 mkdir -p data/raw
 kaggle datasets download -d maharshipandya/-spotify-tracks-dataset --unzip -p data/raw
 ```
+
+> Requires a [Kaggle account](https://www.kaggle.com) and `kaggle.json` API token placed in `~/.kaggle/`.
+
+***
+
+## Usage
+
+```bash
+python main.py
+```
+
+```
+Enter a song name or 'quit' to exit:
+> Blinding Lights
+
+Find songs outside the same genre? (y/n): n
+
+Euclidean Method Recommendations
+1. Save Your Tears by The Weeknd: pop
+2. Levitating by Dua Lipa: pop
+...
+-------------------------------
+Cosine Method Recommendations
+1. Save Your Tears by The Weeknd: pop
+2. As It Was by Harry Styles: pop
+...
+```
+
+***
+
+## How It Works
+
+Recommendations are based on 12 audio features:
+
+| Feature | Description |
+|---|---|
+| `danceability` | How suitable a track is for dancing (0–1) |
+| `energy` | Perceptual measure of intensity and activity (0–1) |
+| `valence` | Musical positiveness (0–1) |
+| `tempo` | Estimated beats per minute |
+| `acousticness` | Confidence the track is acoustic (0–1) |
+| `instrumentalness` | Predicts whether a track contains no vocals (0–1) |
+| `liveness` | Detects presence of a live audience (0–1) |
+| `speechiness` | Presence of spoken words (0–1) |
+| `loudness` | Overall loudness in decibels |
+| `key` | Key the track is in |
+| `mode` | Modality — major (1) or minor (0) |
+| `time_signature` | Estimated time signature |
+
+### Pipeline
+
+```
+Raw CSV → Drop nulls & duplicates → MinMax Scale features
+    → KMeans Clustering (114 clusters)
+    → KNN within cluster (Euclidean or Cosine)
+    → Top 5 recommendations
+```
+
+1. **Preprocessing** — Features are normalized with `MinMaxScaler` so no single feature dominates by magnitude (e.g. `tempo` vs `danceability`).
+2. **KMeans Clustering** — Songs are grouped into 114 clusters (one per genre in the dataset) to narrow the search space before running KNN.
+3. **KNN** — Within the input song's cluster, the 5 nearest neighbors are found using either Euclidean distance or Cosine similarity.
+4. **Cross-genre mode** — Optionally filters out songs in the same genre before running KNN, surfacing sonically similar songs from different genres.
+
+***
+
+## Project Structure
+
+```
+Spotify_Song_Recommender/
+├── data/
+│   └── raw/
+│       └── dataset.csv
+├── notebooks/
+│   └── visualize.ipynb
+├── src/
+│   └── utils/
+│       └── helpers.py
+├── main.py
+├── requirements.txt
+└── README.md
+```
+
+***
+
+## Visualizations
+
+Exploratory data analysis is in `notebooks/visualize.ipynb` and includes:
+
+- **Audio Feature Correlation Heatmap** — which features co-vary across the dataset
+- **Average Features by Genre** — heatmap showing the sonic profile of each genre
+
+***
+
+## Dataset
+
+- **Source:** [Kaggle — Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset) by Maharshi Pandya
+- **Size:** ~114,000 songs across 114 genres
+- **Note:** Audio features are provided by the Spotify API and do not strongly correlate with genre labels — genre is a cultural/marketing category, not a purely acoustic one.
+
+***
