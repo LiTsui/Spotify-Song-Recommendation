@@ -2,7 +2,7 @@
 
 A content-based music recommendation system built in Python using the [Kaggle Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset). The user inputs a song name. Then the program recommends 5 similar songs using audio features and machine learning.
 
-## Setup
+## How to run the project
 
 ### 1. Install dependencies
 
@@ -17,10 +17,7 @@ mkdir -p data/raw
 kaggle datasets download -d maharshipandya/-spotify-tracks-dataset --unzip -p data/raw
 ```
 
-***
-
-## How to run the project
-
+### 3. Run the main script 
 ```bash
 python main.py
 ```
