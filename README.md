@@ -2,6 +2,29 @@
 
 A content-based music recommendation system built in Python using the [Kaggle Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset). The user inputs a song name. Then the program recommends 5 similar songs using audio features and machine learning.
 
+***
+
+## Features
+
+Recommendations are based on 12 audio features:
+
+| Feature | Description |
+|---|---|
+| `danceability` | How suitable a track is for dancing (0–1) |
+| `energy` | Perceptual measure of intensity and activity (0–1) |
+| `valence` | Musical positiveness (0–1) |
+| `tempo` | Estimated beats per minute |
+| `acousticness` | Confidence the track is acoustic (0–1) |
+| `instrumentalness` | Predicts whether a track contains no vocals (0–1) |
+| `liveness` | Detects presence of a live audience (0–1) |
+| `speechiness` | Presence of spoken words (0–1) |
+| `loudness` | Overall loudness in decibels |
+| `key` | Key the track is in |
+| `mode` | Modality — major (1) or minor (0) |
+| `time_signature` | Estimated time signature |
+
+*** 
+
 ## How to run the project
 
 ### 1. Install dependencies
@@ -41,25 +64,6 @@ Cosine Method Recommendations
 ```
 
 ***
-
-## How It Works
-
-Recommendations are based on 12 audio features:
-
-| Feature | Description |
-|---|---|
-| `danceability` | How suitable a track is for dancing (0–1) |
-| `energy` | Perceptual measure of intensity and activity (0–1) |
-| `valence` | Musical positiveness (0–1) |
-| `tempo` | Estimated beats per minute |
-| `acousticness` | Confidence the track is acoustic (0–1) |
-| `instrumentalness` | Predicts whether a track contains no vocals (0–1) |
-| `liveness` | Detects presence of a live audience (0–1) |
-| `speechiness` | Presence of spoken words (0–1) |
-| `loudness` | Overall loudness in decibels |
-| `key` | Key the track is in |
-| `mode` | Modality — major (1) or minor (0) |
-| `time_signature` | Estimated time signature |
 
 ### Workflow
 
