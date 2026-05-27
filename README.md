@@ -79,7 +79,7 @@ Cosine Method Recommendations
 
 ## Visualizations
 
-Exploratory data analysis is in `notebooks/visualize.ipynb` and includes:
+Exploratory data analysis is in `visualize.ipynb` and includes:
 
 - **Feature Comparison by Genre** — shows different graphs of certain features according to specific music genres
 - **Audio Feature Correlation Heatmap** — shows covariance across the features of the dataset
