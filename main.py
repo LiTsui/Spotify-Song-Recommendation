@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 
 """
-A simple program that recommends songs 
+A simple program that recommends songs using the Kaggle Spotify Tracks dataset 
 """
 
 np.seterr(divide="ignore", invalid="ignore", over="ignore")  # necessary to ignore errors
