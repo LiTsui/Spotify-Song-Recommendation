@@ -4,7 +4,13 @@ A content-based music recommendation system built in Python using the [Kaggle Sp
 
 ## Setup
 
-### 1. Download the dataset
+### 1. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Download the dataset
 
 ```bash
 mkdir -p data/raw
