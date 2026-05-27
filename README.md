@@ -4,27 +4,12 @@ A content-based music recommendation system built in Python using the [Kaggle Sp
 
 ## Setup
 
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/<your-username>/Spotify_Song_Recommender.git
-cd Spotify_Song_Recommender
-```
-
-### 2. Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Download the dataset
+### 1. Download the dataset
 
 ```bash
 mkdir -p data/raw
 kaggle datasets download -d maharshipandya/-spotify-tracks-dataset --unzip -p data/raw
 ```
-
-> Requires a [Kaggle account](https://www.kaggle.com) and `kaggle.json` API token placed in `~/.kaggle/`.
 
 ***
 
@@ -40,8 +25,6 @@ python main.py
 ```
 Enter a song name or 'quit' to exit:
 > Blinding Lights
-
-Find songs outside the same genre? (y/n): n
 
 Euclidean Method Recommendations
 1. Save Your Tears by The Weeknd: pop
@@ -87,20 +70,18 @@ Recommendations are based on 12 audio features:
 ### Cosine Similarity 
 - Measures the angle between two vectors in n-dimensional space to see how much they point in the same direction 
 
-
 ## Visualizations
 
 Exploratory data analysis is in `notebooks/visualize.ipynb` and includes:
 
-- **Audio Feature Correlation Heatmap** — which features co-vary across the dataset
-- **Average Features by Genre** — heatmap showing the sonic profile of each genre
+- **Feature Comparison by Genre** — shows different graphs of certain features according to specific music genres
+- **Audio Feature Correlation Heatmap** — shows covariance across the features of the dataset
 
 ***
 
 ## Dataset
 
 - **Source:** [Kaggle — Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset) by Maharshi Pandya
-- **Size:** ~114,000 songs across 114 genres
-- **Note:** Audio features are provided by the Spotify API and do not strongly correlate with genre labels — genre is a cultural/marketing category, not a purely acoustic one.
+- **Size:** about 114,000 songs across 114 genres
 
 ***
