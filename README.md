@@ -1,6 +1,6 @@
-# 🎵 Spotify Song Recommender
+# Spotify Song Recommender
 
-A content-based music recommendation system built in Python using the [Kaggle Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset). Given a song name, the program recommends 5 similar songs using audio features and machine learning.
+A content-based music recommendation system built in Python using the [Kaggle Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset). The user inputs a song name. Then the program recommends 5 similar songs using audio features and machine learning.
 
 ## Setup
 
@@ -28,12 +28,15 @@ kaggle datasets download -d maharshipandya/-spotify-tracks-dataset --unzip -p da
 
 ***
 
-## Usage
+## How to run the project
 
 ```bash
 python main.py
 ```
 
+***
+
+## Example Output
 ```
 Enter a song name or 'quit' to exit:
 > Blinding Lights
@@ -72,40 +75,18 @@ Recommendations are based on 12 audio features:
 | `mode` | Modality — major (1) or minor (0) |
 | `time_signature` | Estimated time signature |
 
-### Pipeline
-
-```
-Raw CSV → Drop nulls & duplicates → MinMax Scale features
-    → KMeans Clustering (114 clusters)
-    → KNN within cluster (Euclidean or Cosine)
-    → Top 5 recommendations
-```
+### Workflow
 
 1. **Preprocessing** — Features are normalized with `MinMaxScaler` so no single feature dominates by magnitude (e.g. `tempo` vs `danceability`).
 2. **KMeans Clustering** — Songs are grouped into 114 clusters (one per genre in the dataset) to narrow the search space before running KNN.
 3. **KNN** — Within the input song's cluster, the 5 nearest neighbors are found using either Euclidean distance or Cosine similarity.
-4. **Cross-genre mode** — Optionally filters out songs in the same genre before running KNN, surfacing sonically similar songs from different genres.
 
-***
+### Euclidean Distance
+- Measures the straight line distance between two points in n-dimensional space 
 
-## Project Structure
+### Cosine Similarity 
+- Measures the angle between two vectors in n-dimensional space to see how much they point in the same direction 
 
-```
-Spotify_Song_Recommender/
-├── data/
-│   └── raw/
-│       └── dataset.csv
-├── notebooks/
-│   └── visualize.ipynb
-├── src/
-│   └── utils/
-│       └── helpers.py
-├── main.py
-├── requirements.txt
-└── README.md
-```
-
-***
 
 ## Visualizations
 
